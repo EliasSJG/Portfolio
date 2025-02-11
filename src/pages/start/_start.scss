@@ -1,0 +1,10 @@
+.start-left {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: solid 1px black;
+}
+
+.start-right {
+  border: solid 1px black;
+}

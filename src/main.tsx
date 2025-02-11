@@ -1,10 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.scss";
-import App from "./App.tsx";
+import "./Main.scss";
+
+import Header from "./components/header/header.tsx";
+import Start from "./pages/start/start.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <Header></Header>
+    <Start></Start>
   </StrictMode>
 );

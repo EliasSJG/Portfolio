@@ -1,9 +1,12 @@
 import "./_header.scss";
+type HeaderProps = {
+  title: string;
+};
 
-function Header() {
+function Header({ title }: HeaderProps) {
   return (
     <header>
-      <h2>Elias Gustafsson</h2>
+      <h2>{title}</h2>
 
       <div>
         <a href="">Hem</a>

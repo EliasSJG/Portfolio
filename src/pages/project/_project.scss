@@ -1,0 +1,7 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  div {
+    border: solid 1px black;
+  }
+}

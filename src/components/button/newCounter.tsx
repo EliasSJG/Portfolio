@@ -12,7 +12,7 @@ const NewCounter = () => {
 
   return (
     <>
-      <h1>New Counter</h1>
+      <h2>New Counter</h2>
       <p>{count}</p>
       <NewButton title="Plus 1" clickFunction={add}></NewButton>
       <NewButton title="Minus 1" clickFunction={minus}></NewButton>

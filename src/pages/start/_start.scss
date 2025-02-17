@@ -1,10 +1,18 @@
-.start-left {
-  margin-top: 100px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border: solid 1px black;
+.start {
+  margin: 4rem 0;
+  display: flex;
+  justify-content: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.start-right {
-  border: solid 1px black;
+.counter-div {
+  border-bottom: 1px solid white;
+  border-right: 1px solid white;
+  padding: 3rem;
+  border-radius: 3rem;
+  box-shadow: 2px 2px 4px;
 }

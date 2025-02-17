@@ -1,19 +1,18 @@
 header {
   height: 4rem;
-  background-color: gray;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // position: fixed;
-  // top: 0;
-  // right: 0;
-  // left: 0;
+  position: sticky;
+  top: 0;
+
   z-index: 1;
 
   a,
   h2 {
     margin: 0 1rem 0 1rem;
-    color: black;
+    color: white;
     text-decoration: none;
   }
 }

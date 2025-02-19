@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
 import "./_header.scss";
-type HeaderProps = {
-  title: string;
-};
 
-function Header({ title }: HeaderProps) {
+function Header() {
+  const [scrolled, setScroll] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header>
-      <h2>{title}</h2>
+    <header className={scrolled ? "scrolled" : ""}>
+      <h2>Elias Gustafsson</h2>
 
       <div>
         <a href="">Hem</a>

@@ -4,9 +4,7 @@ import Project from "./pages/project/project";
 
 import { useState } from "react";
 import Button from "./components/button/button";
-import PersonCard from "./components/personCard/personcard";
-import InputDemo from "./components/inputDemo/inputDemo";
-import AnimalList from "./components/amimalList/animalList";
+import ExercisePart from "./pages/react-school-temp/exercise";
 
 const nameTitles = ["Ultimate Trivia", "Zoodjur", "Monster Creation"];
 
@@ -18,17 +16,10 @@ function App() {
   return (
     <>
       {" "}
-      <Header title="Elias Gustafsson"></Header>{" "}
+      <Header></Header> <Start></Start>
+      <Project title={nameTitles}></Project>
       <Button onClick={setStartVisibilityToggle} visible={appDisplay}></Button>
-      {appDisplay && (
-        <>
-          <Start></Start>
-          <Project title={nameTitles}></Project>
-          <InputDemo></InputDemo>
-          <PersonCard></PersonCard>
-          <AnimalList></AnimalList>
-        </>
-      )}
+      {appDisplay && <ExercisePart></ExercisePart>}
     </>
   );
 }

@@ -1,11 +1,13 @@
 import "./_button.scss";
 
 type ButtonProps = {
-  onClick: () => void;
-  visible: boolean;
+  title: string;
+  handleClick: () => void;
 };
-const Button: React.FC<ButtonProps> = ({ onClick, visible }) => {
-  return <button onClick={onClick}>{visible ? "Hide All" : "Show All"}</button>;
-};
-
-export default Button;
+export default function Button({ title, handleClick }: ButtonProps) {
+  return (
+    <button className="standard-button" onClick={handleClick}>
+      {title}
+    </button>
+  );
+}

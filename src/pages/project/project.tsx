@@ -1,19 +1,32 @@
+import Button from "../../components/button/button";
 import "./_project.scss";
 type ProjectProps = {
-  title: string[];
+  projects: { title: string; description: string; link: string }[];
 };
 
-function Project({ title }: ProjectProps) {
+function Project({ projects }: ProjectProps) {
+  const gitHub = "https://github.com/EliasSJG";
   return (
-    <div className="project-grid">
-      {title.map((item) => {
-        return (
-          <div>
-            <h3>{item}</h3>
-            <p>text</p>
-          </div>
-        );
-      })}
+    <div className="project-section">
+      <h1>Mina Projekt</h1>
+      <div className="project-grid">
+        {projects.map((project, index) => {
+          return (
+            <div key={index}>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <Button
+                handleClick={() => window.open(project.link, "_blank")}
+                title="Läs mer"
+              ></Button>
+            </div>
+          );
+        })}
+      </div>{" "}
+      <Button
+        handleClick={() => window.open(gitHub, "_blank")}
+        title="Min Github"
+      ></Button>
     </div>
   );
 }

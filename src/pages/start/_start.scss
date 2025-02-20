@@ -1,18 +1,13 @@
 .start {
-  margin: 4rem 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
-}
-
-.counter-div {
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
-  padding: 3rem;
-  border-radius: 3rem;
-  box-shadow: 2px 2px 4px;
 }

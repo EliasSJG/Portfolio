@@ -41,3 +41,36 @@ export const journey = [
     description: "tomt just nu",
   },
 ];
+
+export const skills = [
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+  {
+    title: "något",
+    description: "tomt just nu",
+    image: "Bild ska vara här men har inte importat bild",
+  },
+];

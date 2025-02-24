@@ -1,11 +1,12 @@
 import Header from "./components/header/header";
 import "./styles/base/_typography.scss";
 import { useRef } from "react";
-import { journey, projects } from "./state/state";
+import { journey, projects, skills } from "./state/state";
 import Button from "./components/button/button";
 import Project from "./pages/project/project";
 import "./pages/start/_start.scss";
 import Journey from "./pages/journey/journey";
+import Skills from "./pages/skills/skills";
 export default function App() {
   const sectionScroll = useRef<HTMLDivElement | null>(null);
   const scrollToProjects = () => {
@@ -13,7 +14,6 @@ export default function App() {
   };
   return (
     <>
-      {" "}
       <Header></Header>
       <div className="start">
         <div>
@@ -31,7 +31,8 @@ export default function App() {
       </div>
       <div ref={sectionScroll}>
         <Project projects={projects} />
-      </div>{" "}
+      </div>
+      <Skills skill={skills}></Skills>
       <Journey journey={journey} />
     </>
   );

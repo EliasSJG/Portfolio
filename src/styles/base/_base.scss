@@ -8,6 +8,10 @@ p {
   color: white;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+}
 body {
   //#323642
   background-image: linear-gradient(#375c87, #324057, #102e4a);

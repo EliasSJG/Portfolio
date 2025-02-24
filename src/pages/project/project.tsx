@@ -23,7 +23,7 @@ function Project({ projects }: ProjectProps) {
             </div>
           );
         })}
-      </div>{" "}
+      </div>
       <Button
         handleClick={() => window.open(gitHub, "_blank")}
         title="Min Github"

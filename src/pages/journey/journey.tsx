@@ -10,7 +10,7 @@ type JourneyProps = {
 export default function Journey({ journey }: JourneyProps) {
   return (
     <>
-      <h1 className="journey-heading">Min Resa</h1>
+      <h1>Min Resa</h1>
       <div className="journey-div">
         {journey.map((journey, index) => {
           return (

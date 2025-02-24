@@ -1,0 +1,21 @@
+.journey-div {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1rem;
+  width: 2000px;
+  border: solid 1px black;
+
+  div {
+    width: 20%;
+
+    display: flex;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.journey-heading {
+  display: flex;
+  justify-content: center;
+}

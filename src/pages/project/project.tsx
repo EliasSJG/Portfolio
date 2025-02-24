@@ -13,7 +13,8 @@ function Project({ projects }: ProjectProps) {
         {projects.map((project, index) => {
           return (
             <div key={index}>
-              <h3>{project.title}</h3>
+              <h2>{project.title}</h2>
+
               <p>{project.description}</p>
               <Button
                 handleClick={() => window.open(project.link, "_blank")}

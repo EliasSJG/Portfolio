@@ -9,7 +9,7 @@ type JourneyProps = {
 
 export default function Journey({ journey }: JourneyProps) {
   return (
-    <>
+    <div className="journey-section">
       <h1>Min Resa</h1>
       <div className="journey-div">
         {journey.map((journey, index) => {
@@ -19,8 +19,8 @@ export default function Journey({ journey }: JourneyProps) {
               <p>{journey.description}</p>
             </div>
           );
-        })}
+        })}{" "}
       </div>
-    </>
+    </div>
   );
 }

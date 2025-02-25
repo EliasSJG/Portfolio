@@ -15,7 +15,7 @@ export default function App() {
   return (
     <>
       <Header></Header>
-      <div className="start">
+      <section>
         <div>
           <h1>Elias Gustafsson</h1>
           <h2>Portfolio</h2>
@@ -28,12 +28,12 @@ export default function App() {
             title="Lär mer om mig!"
           ></Button>
         </div>
-      </div>
+      </section>
       <div ref={sectionScroll}>
         <Project projects={projects} />
-      </div>
-      <Skills skill={skills}></Skills>
+      </div>{" "}
       <Journey journey={journey} />
+      <Skills skill={skills}></Skills>
     </>
   );
 }

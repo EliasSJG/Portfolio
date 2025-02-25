@@ -1,16 +1,25 @@
+.journey-section {
+  margin: 20rem 0;
+}
+
 .journey-div {
   display: flex;
-  justify-content: space-between;
-  margin: 0 1rem;
-  width: 2000px;
-  border: solid 1px black;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow-x: auto;
+  width: 95%;
+  white-space: nowrap;
+  padding-bottom: 1rem;
+  border-left: 1px white solid;
+  border-right: 1px white solid;
 
   div {
-    width: 20%;
-
+    flex-shrink: 0;
+    max-width: 40%;
     display: flex;
-    padding: 0.5rem;
+    padding: 1rem;
     flex-direction: column;
     align-items: center;
+    white-space: normal;
   }
 }

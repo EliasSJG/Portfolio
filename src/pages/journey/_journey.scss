@@ -1,5 +1,5 @@
 .journey-section {
-  margin: 20rem 0;
+  padding: 10rem 0;
 }
 
 .journey-div {
@@ -9,9 +9,9 @@
   overflow-x: auto;
   width: 95%;
   white-space: nowrap;
-  padding-bottom: 1rem;
-  border-left: 1px white solid;
-  border-right: 1px white solid;
+  padding-bottom: 2rem;
+  border-left: 10px white solid;
+  border-right: 10px white solid;
 
   div {
     flex-shrink: 0;

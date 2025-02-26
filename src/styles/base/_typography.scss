@@ -15,8 +15,10 @@ p {
   font-family: $text-font;
 }
 button,
+a,
 select,
 input,
 option {
   font-family: $interactive-font;
+  font-size: 1.15rem;
 }

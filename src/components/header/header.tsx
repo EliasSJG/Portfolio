@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./_header.scss";
+import Button from "../button/button";
 
 function Header() {
   const [scrolled, setScroll] = useState(false);
@@ -28,6 +29,7 @@ function Header() {
         <a href="">Om Mig</a>
         <a href="">Min Resa</a>
       </div>
+      <Button title="Kontakt" handleClick={() => {}}></Button>
     </header>
   );
 }

@@ -8,6 +8,7 @@ import "./pages/start/_start.scss";
 import Journey from "./pages/journey/journey";
 import Skills from "./pages/skills/skills";
 import portfoliopicture from "./images/portfoliopicture.png";
+import GitHubApi from "./api/api";
 export default function App() {
   const sectionScroll = useRef<HTMLDivElement | null>(null);
   const scrollToProjects = () => {
@@ -43,6 +44,7 @@ export default function App() {
         <Project projects={projects} />
       </div>{" "}
       <Journey journey={journey} />
+      <GitHubApi></GitHubApi>
       <Skills skill={skills}></Skills>
     </>
   );

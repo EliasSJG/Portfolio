@@ -25,7 +25,11 @@ export default function App() {
             Just nu en övning för att lära om react, men kommer stadigt
             utvecklas till en riktig Portfolio som kan vara bra att ha
           </p>
-          <Button handleClick={scrollToProjects} title="Lär mer"></Button>
+          <Button
+            className="standard-button"
+            handleClick={scrollToProjects}
+            title="Lär mer"
+          ></Button>
         </div>
         <div>
           <img

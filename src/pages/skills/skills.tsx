@@ -1,4 +1,7 @@
+import { useState } from "react";
 import "./_skills.scss";
+import Button from "../../components/button/button";
+import { skills } from "../../state/state";
 type SkillsProps = {
   skill: {
     title: string;
@@ -8,21 +11,32 @@ type SkillsProps = {
 };
 
 export default function Skills({ skill }: SkillsProps) {
+  const [currentskill, setCurrentSkill] = useState(0);
+
+  const nextSkill = () => {
+    setCurrentSkill((prev) => (prev + 1) % skill.length);
+  };
+
   return (
     <>
       <h1>Skills</h1>
       <div className="skill-div">
-        {skill.map((skill, index) => {
-          return (
-            <div key={index}>
-              <div>{skill.image}</div>
-              <div>
-                <h2>{skill.title}</h2>
-                <p>{skill.description}</p>
-              </div>
-            </div>
-          );
-        })}
+        <div className="image-container">
+          <img
+            src={skills[currentskill].image}
+            alt={skills[currentskill].title}
+            className="skill-image"
+          />{" "}
+        </div>
+        <div className="info-container">
+          <h2>{skills[currentskill].title}</h2>
+          <p>{skills[currentskill].description}</p>
+        </div>
+        <Button
+          className="switch-skill"
+          handleClick={nextSkill}
+          title=">"
+        ></Button>
       </div>
     </>
   );

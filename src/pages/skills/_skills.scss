@@ -1,13 +1,22 @@
 .skill-div {
-  border: solid 3px white;
+  border: solid 10px white;
   border-radius: 2rem;
-  div {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+  height: 20rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  border-right: solid 10px white;
+  width: 35%;
+  height: 100%;
+}
+.skill-image {
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  padding: 1rem;
+}
+.info-container {
+  width: 50%;
 }

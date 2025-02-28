@@ -29,7 +29,11 @@ function Header() {
         <a href="">Om Mig</a>
         <a href="">Min Resa</a>
       </div>
-      <Button title="Kontakt" handleClick={() => {}}></Button>
+      <Button
+        className="standard-button"
+        title="Kontakt"
+        handleClick={() => {}}
+      ></Button>
     </header>
   );
 }

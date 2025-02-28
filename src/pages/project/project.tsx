@@ -17,6 +17,7 @@ function Project({ projects }: ProjectProps) {
 
               <p>{project.description}</p>
               <Button
+                className="standard-button"
                 handleClick={() => window.open(project.link, "_blank")}
                 title="Läs mer"
               ></Button>
@@ -25,6 +26,7 @@ function Project({ projects }: ProjectProps) {
         })}
       </div>
       <Button
+        className="standard-button"
         handleClick={() => window.open(gitHub, "_blank")}
         title="Min Github"
       ></Button>

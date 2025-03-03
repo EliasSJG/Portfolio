@@ -9,6 +9,7 @@ import Journey from "./pages/journey/journey";
 import Skills from "./pages/skills/skills";
 import portfoliopicture from "./images/portfoliopicture.png";
 import GitHubApi from "./api/api";
+import AboutMe from "./pages/about/about";
 export default function App() {
   const sectionScroll = useRef<HTMLDivElement | null>(null);
   const scrollToProjects = () => {
@@ -23,8 +24,8 @@ export default function App() {
           <h1>Hej! Jag heter Elias!</h1>
           <h2>Välkommen till min portfolio!</h2>
           <p>
-            Just nu en övning för att lära om react, men kommer stadigt
-            utvecklas till en riktig Portfolio som kan vara bra att ha
+            En 19-årig frontendutvecklare som tycker om att programmera och
+            designa webbapplikationer.
           </p>
           <Button
             className="standard-button"
@@ -44,6 +45,7 @@ export default function App() {
         <Project projects={projects} />
       </div>{" "}
       <Journey journey={journey} />
+      <AboutMe></AboutMe>
       <GitHubApi></GitHubApi>
       <Skills skill={skills}></Skills>
     </>

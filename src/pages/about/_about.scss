@@ -1,0 +1,17 @@
+.about-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  div {
+    width: 90%;
+  }
+}
+
+.about-main {
+  background-color: #202020;
+  padding: 10rem 1rem;
+}
+
+.dot-list-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

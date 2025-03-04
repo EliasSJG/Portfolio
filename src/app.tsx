@@ -8,8 +8,9 @@ import "./pages/start/_start.scss";
 import Journey from "./pages/journey/journey";
 import Skills from "./pages/skills/skills";
 import portfoliopicture from "./images/portfoliopicture.png";
-import GitHubApi from "./api/api";
+import GitHubApi from "./api/githubApi/api";
 import AboutMe from "./pages/about/about";
+import Chat from "./pages/chatPage/chatPage";
 export default function App() {
   const sectionScroll = useRef<HTMLDivElement | null>(null);
   const scrollToProjects = () => {
@@ -48,6 +49,7 @@ export default function App() {
       <AboutMe></AboutMe>
       <GitHubApi></GitHubApi>
       <Skills skill={skills}></Skills>
+      <Chat></Chat>
     </>
   );
 }

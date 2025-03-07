@@ -2,7 +2,7 @@ import "./_about.scss";
 export default function AboutMe() {
   return (
     <div className="about-main">
-      <h1>About Me</h1>
+      <h1>Om Mig</h1>
       <div className="about-section">
         <div>
           <p>
@@ -16,16 +16,24 @@ export default function AboutMe() {
         </div>
         <div className="dot-list-info">
           <ul>
-            <li>temp text</li>
-            <li>temp text</li>
-            <li>temp text</li>
-            <li>temp text</li>
-          </ul>{" "}
+            <li>Född: 05-07-26</li>
+            <li>Språk: Svenska, Engelska</li>
+            <li>Bor: Borås</li>
+            <li>
+              Utbildning: Yrkeshögskolan i Borås | Frontendutveckling | 2024 -
+              2026
+              <li>LBS Gymnasiet | Systemutveckling | 2021 - 2024</li>
+            </li>
+          </ul>
           <ul>
-            <li>temp text</li>
-            <li>temp text</li>
-            <li>temp text</li>
-            <li>temp text</li>
+            <li>elias_gustafsson@outlook.com</li>
+            <li>072-302-61-95</li>
+            <li>
+              <a href="https://github.com/EliasSJG">Github</a>
+            </li>
+            <li>
+              <a href="www.linkedin.com/in/eliasgustafsson1">LinkedIn</a>
+            </li>
           </ul>
         </div>
       </div>

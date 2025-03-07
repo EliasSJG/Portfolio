@@ -18,8 +18,8 @@ export default function Skills({ skill }: SkillsProps) {
   };
 
   return (
-    <>
-      <h1>Skills</h1>
+    <div className="skills-main">
+      <h1>Färdigheter</h1>
       <div className="skill-div">
         <div className="image-container">
           <img
@@ -38,6 +38,6 @@ export default function Skills({ skill }: SkillsProps) {
           title=">"
         ></Button>
       </div>
-    </>
+    </div>
   );
 }

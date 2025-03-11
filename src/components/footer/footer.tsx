@@ -1,6 +1,10 @@
+import NavigationLinks from "../navigation/navigation";
 import "./_footer.scss";
 
-export default function Footer() {
+type footerProps = {
+  footerLinkClick: (section: string) => void;
+};
+export default function Footer({ footerLinkClick }: footerProps) {
   return (
     <footer>
       <div>
@@ -10,19 +14,9 @@ export default function Footer() {
         <ul>
           <h3>Navigation</h3>
           <li>
-            <a href="">Hem</a>
-          </li>
-          <li>
-            <a href="">Projekt</a>
-          </li>
-          <li>
-            <a href="">Skills</a>
-          </li>
-          <li>
-            <a href="">Om Mig</a>
-          </li>
-          <li>
-            <a href="">Min Resa</a>
+            <NavigationLinks
+              navigationLinkClick={footerLinkClick}
+            ></NavigationLinks>
           </li>
         </ul>
 

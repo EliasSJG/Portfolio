@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import "./_header.scss";
 import Button from "../button/button";
+import NavigationLinks from "../navigation/navigation";
 
-function Header() {
+type HeaderProps = {
+  headerLinkClick: (section: string) => void;
+};
+function Header({ headerLinkClick }: HeaderProps) {
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
@@ -22,13 +26,7 @@ function Header() {
     <header className={scrolled ? "scrolled" : ""}>
       <h2>Elias Gustafsson</h2>
 
-      <div>
-        <a href="">Hem</a>
-        <a href="">Projekt</a>
-        <a href="">Skills</a>
-        <a href="">Om Mig</a>
-        <a href="">Min Resa</a>
-      </div>
+      <NavigationLinks navigationLinkClick={headerLinkClick}></NavigationLinks>
       <Button
         className="standard-button"
         title="Kontakt"

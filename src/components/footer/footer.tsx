@@ -8,29 +8,25 @@ export default function Footer({ footerLinkClick }: footerProps) {
   return (
     <footer>
       <div>
-        <h3>Elias Gustafsson</h3>
+        <h2>Navigation</h2>
+        <NavigationLinks
+          navigationLinkClick={footerLinkClick}
+        ></NavigationLinks>
+      </div>{" "}
+      <div>
+        <h2>Elias Gustafsson</h2>
+        <p></p>
       </div>
       <div>
-        <ul>
-          <h3>Navigation</h3>
-          <li>
-            <NavigationLinks
-              navigationLinkClick={footerLinkClick}
-            ></NavigationLinks>
-          </li>
-        </ul>
-
-        <ul>
-          <h3>Kontakt</h3>
-          <li>elias_gustafsson@outlook.com</li>
-          <li>072-302-61-95</li>
-          <li>
-            <a href="https://github.com/EliasSJG">Github</a>
-          </li>
-          <li>
-            <a href="www.linkedin.com/in/eliasgustafsson1">LinkedIn</a>
-          </li>
-        </ul>
+        <h2>Kontakt</h2>
+        <p>elias_gustafsson@outlook.com</p>
+        <p>072-302-61-95</p>
+        <p>
+          <a href="https://github.com/EliasSJG">Github</a>
+        </p>
+        <p>
+          <a href="www.linkedin.com/in/eliasgustafsson1">LinkedIn</a>
+        </p>
       </div>
     </footer>
   );

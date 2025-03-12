@@ -6,7 +6,8 @@
     width: 25%;
     height: 200px;
     margin: 0 auto;
-    padding: 1rem;
+
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +15,11 @@
     border-right: 1rem solid #2070cd;
     background-color: white;
     border-radius: 3rem;
+    position: relative;
+    button {
+      position: absolute;
+      bottom: 0;
+    }
 
     p,
     h2 {

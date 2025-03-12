@@ -16,19 +16,23 @@ export default function NavigationLinks({
   };
 
   return (
-    <div>
+    <div className="navi-list">
       <a href="#" onClick={(e) => handleLinkClick("home", e)}>
         Hem
       </a>
+
       <a href="#" onClick={(e) => handleLinkClick("projects", e)}>
         Projekt
       </a>
+
       <a href="#" onClick={(e) => handleLinkClick("journey", e)}>
         Min Resa
       </a>
+
       <a href="#" onClick={(e) => handleLinkClick("about", e)}>
         Om Mig
       </a>
+
       <a href="#" onClick={(e) => handleLinkClick("skills", e)}>
         Skills
       </a>

@@ -1,12 +1,16 @@
 footer {
   background-color: black;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 10rem;
   div {
     display: flex;
+    flex-direction: column;
+    align-items: baseline;
+
     a {
       color: white;
+      margin: 0;
     }
   }
 }

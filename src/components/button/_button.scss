@@ -31,3 +31,40 @@
 .switch-skill:hover {
   background-color: #000000;
 }
+.language-button {
+  position: relative;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 25px;
+  background-color: #c9c9c9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  color: rgb(0, 0, 0);
+  text-align: center;
+
+  user-select: none;
+}
+
+.language-button.active {
+  background-color: #2070cd;
+  transform: scale(1.05); /* Slightly scale the active button */
+}
+
+.language-button:before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 0px;
+  width: 20%;
+  height: 60%;
+  background-color: #2070cd;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  border: solid 1px black;
+}
+
+.language-button.active:before {
+  transform: translateX(360%);
+  background-color: white;
+}

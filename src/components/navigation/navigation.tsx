@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./_navigation.scss";
+import {
+  LanguageContext,
+  LanguageContextProps,
+} from "../../context/languageConext";
 type NavigationProps = {
   navigationLinkClick: (section: string) => void;
 };
@@ -14,27 +18,27 @@ export default function NavigationLinks({
     event.preventDefault();
     navigationLinkClick(section);
   };
-
+  const { language } = useContext(LanguageContext) as LanguageContextProps;
   return (
     <div className="navi-list">
       <a href="#" onClick={(e) => handleLinkClick("home", e)}>
-        Hem
+        {language === "swe" ? "Hem" : "Home"}
       </a>
 
       <a href="#" onClick={(e) => handleLinkClick("projects", e)}>
-        Projekt
+        {language === "swe" ? "Projekt" : "Project"}
       </a>
 
       <a href="#" onClick={(e) => handleLinkClick("journey", e)}>
-        Min Resa
+        {language === "swe" ? "Min Resa" : "My Journey"}
       </a>
 
       <a href="#" onClick={(e) => handleLinkClick("about", e)}>
-        Om Mig
+        {language === "swe" ? "Om Mig" : "About Me"}
       </a>
 
       <a href="#" onClick={(e) => handleLinkClick("skills", e)}>
-        Skills
+        {language === "swe" ? "Färdigheter" : "Skills"}
       </a>
     </div>
   );

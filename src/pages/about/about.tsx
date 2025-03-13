@@ -1,27 +1,35 @@
+import { useContext } from "react";
+import {
+  LanguageContext,
+  LanguageContextProps,
+} from "../../context/languageConext";
 import "./_about.scss";
 export default function AboutMe() {
+  const { language } = useContext(LanguageContext) as LanguageContextProps;
   return (
     <div className="about-main">
-      <h1>Om Mig</h1>
+      <h1>{language === "swe" ? "Om Mig" : "About Me"}</h1>
       <div className="about-section">
         <div>
           <p>
-            Jag började på LBS Gymnasiet 2021 och påbörjade min resa där. Jag
-            gick många programmeringskurser men fastnade mest för
-            webbutveckling. Det är därför jag nu har valt att studera frontend,
-            så att jag kan bli den bästa programmeraren jag kan bli. Jag har
-            deltagit i många skolprojekt genom LBS "projektveckor", där man har
-            en vecka på sig att skapa och slutföra ett projekt.
+            {language === "swe"
+              ? " Jag började på LBS Gymnasiet 2021 och påbörjade min resa där. Jag gick många programmeringskurser men fastnade mest för webbutveckling. Det är därför jag nu har valt att studera frontend, så att jag kan bli den bästa programmeraren jag kan bli. Jag har deltagit i många skolprojekt genom LBS projektveckor, där man har en vecka på sig att skapa och slutföra ett projekt."
+              : "I started at LBS Gymnasiet in 2021 and started my journey there. I took many programming courses but mostly stuck with web development. That's why I have now chosen to study frontend, so that I can become the best programmer I can be. I have participated in many school projects through LBS project weeks, where you have a week to create and complete a project."}
           </p>
         </div>
         <div className="dot-list-info">
           <ul>
-            <li>Född: 05-07-26</li>
-            <li>Språk: Svenska, Engelska</li>
-            <li>Bor: Borås</li>
+            <li> {language === "swe" ? "Född: " : "Born:"} 05-07-26</li>
             <li>
-              Utbildning: Yrkeshögskolan i Borås | Frontendutveckling | 2024 -
-              2026
+              {" "}
+              {language === "swe"
+                ? "Språk: Svenska, Engelska"
+                : "Language: Swedish, English"}
+            </li>
+            <li>{language === "swe" ? "Bor: " : "Resides: "} Sweden | Borås</li>
+            <li>
+              {language === "swe" ? "Utbildning: " : "Education: "}
+              Yrkeshögskolan i Borås | Frontendutveckling | 2024 - 2026
               <li>LBS Gymnasiet | Systemutveckling | 2021 - 2024</li>
             </li>
           </ul>

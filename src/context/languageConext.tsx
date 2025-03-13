@@ -1,22 +1,22 @@
 import { createContext, ReactNode, useState } from "react";
 
-type LanguageContextProps = {
-  language: string;
-  setLanguage: (lang: string) => void;
+export type LanguageContextProps = {
+  language: "swe" | "eng";
+  setLanguage: React.Dispatch<React.SetStateAction<"swe" | "eng">>;
 };
-const languageContext = createContext<LanguageContextProps | null>(null);
+const LanguageContext = createContext<LanguageContextProps | null>(null);
 
 type LanguageProps = {
   children: ReactNode;
 };
-const languageProvider = ({ children }: LanguageProps) => {
-  const [language, setLanguage] = useState("swe");
+export const LanguageProvider = ({ children }: LanguageProps) => {
+  const [language, setLanguage] = useState<"swe" | "eng">("swe");
 
   return (
-    <languageContext.Provider value={{ language, setLanguage }}>
+    <LanguageContext.Provider value={{ language, setLanguage }}>
       {children}
-    </languageContext.Provider>
+    </LanguageContext.Provider>
   );
 };
 
-export { languageContext, languageProvider };
+export { LanguageContext };

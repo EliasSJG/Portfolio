@@ -5,8 +5,11 @@ import NavigationLinks from "../navigation/navigation";
 
 type HeaderProps = {
   headerLinkClick: (section: string) => void;
+  setLanguage: (lang: "swe" | "eng") => void;
+  language: "swe" | "eng";
 };
-function Header({ headerLinkClick }: HeaderProps) {
+
+function Header({ headerLinkClick, setLanguage, language }: HeaderProps) {
   const [scrolled, setScroll] = useState(false);
 
   useEffect(() => {
@@ -29,10 +32,17 @@ function Header({ headerLinkClick }: HeaderProps) {
       <NavigationLinks navigationLinkClick={headerLinkClick}></NavigationLinks>
       <Button
         className="standard-button"
-        title="Kontakt"
+        title={language === "swe" ? "Kontakt" : "Contact"}
         handleClick={() => {}}
       ></Button>
+
+      <Button
+        className={`language-button ${language === "swe" ? "active" : ""}`}
+        handleClick={() => setLanguage(language === "swe" ? "eng" : "swe")}
+        title={language === "swe" ? "Sve" : "Eng"}
+      />
     </header>
   );
 }
+
 export default Header;

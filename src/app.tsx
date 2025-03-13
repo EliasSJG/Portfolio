@@ -1,6 +1,6 @@
 import Header from "./components/header/header";
 import "./styles/base/_typography.scss";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { journey, projects, skills } from "./state/state";
 import Button from "./components/button/button";
 import Project from "./pages/project/project";
@@ -8,9 +8,9 @@ import "./pages/start/_start.scss";
 import Journey from "./pages/journey/journey";
 import Skills from "./pages/skills/skills";
 import portfoliopicture from "./images/portfoliopicture.png";
-// import GitHubApi from "./api/githubApi/api";
 import AboutMe from "./pages/about/about";
 import Footer from "./components/footer/footer";
+import { LanguageContext } from "./context/languageConext";
 
 export default function App() {
   const homeSectionScroll = useRef<HTMLDivElement | null>(null);
@@ -18,6 +18,14 @@ export default function App() {
   const journeySectionScroll = useRef<HTMLDivElement | null>(null);
   const aboutSectionScroll = useRef<HTMLDivElement | null>(null);
   const skillsSectionScroll = useRef<HTMLDivElement | null>(null);
+
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("LanguageContext must be used within a LanguageProvider");
+  }
+
+  const { language, setLanguage } = context;
+
   const scrollToSections = (section: string) => {
     switch (section) {
       case "home":
@@ -40,20 +48,32 @@ export default function App() {
 
   return (
     <>
-      <Header headerLinkClick={scrollToSections}></Header>
+      <Header
+        headerLinkClick={scrollToSections}
+        setLanguage={setLanguage}
+        language={language}
+      />
       <section ref={homeSectionScroll}>
         <div>
-          <h1></h1>
-          <h1>Hej! Jag heter Elias!</h1>
-          <h2>Välkommen till min portfolio!</h2>
+          <h1>
+            {language === "swe"
+              ? "Hej! Jag Heter Elias!"
+              : "Hi! My Name Is Elias"}
+          </h1>
+          <h2>
+            {language === "swe"
+              ? "Välkommen till min portfolio!"
+              : "Welcome to my portfolio"}
+          </h2>
           <p>
-            En 19-årig frontendutvecklare som tycker om att programmera och
-            designa webbapplikationer.
+            {language === "swe"
+              ? "En 19-årig frontendutvecklare som tycker om att programmera ochdesigna webbapplikationer."
+              : "A 19-year-old front-end developer who enjoys programming and designing web applications."}
           </p>
           <Button
             className="standard-button"
             handleClick={() => scrollToSections("projects")}
-            title="Lär mer"
+            title={language === "swe" ? "Läs mer" : "Read more"}
           ></Button>
         </div>
         <div>
@@ -67,15 +87,12 @@ export default function App() {
       <div ref={projectSectionScroll}>
         <Project projects={projects} />
       </div>
-
       <div ref={journeySectionScroll}>
         <Journey journey={journey} />
       </div>
-
       <div ref={aboutSectionScroll}>
         <AboutMe></AboutMe>
       </div>
-      {/* <GitHubApi></GitHubApi> */}
       <div ref={skillsSectionScroll}>
         <Skills skill={skills}></Skills>
       </div>

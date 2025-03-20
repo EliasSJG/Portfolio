@@ -14,10 +14,8 @@
 .switch-skill {
   background-color: #202020;
   font-size: 3rem;
-
   border-radius: 10px;
   color: white;
-
   width: 10rem;
   cursor: pointer;
   margin: 1rem;
@@ -36,19 +34,18 @@
   width: 6rem;
   height: 2rem;
   border-radius: 25px;
-  background-color: #c9c9c9;
+  background-color: #a1a1a1;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: none;
-  color: rgb(0, 0, 0);
   text-align: center;
-
   user-select: none;
+  color: white;
 }
 
 .language-button.active {
   background-color: #2070cd;
-  transform: scale(1.05); /* Slightly scale the active button */
+  transform: scale(1.05);
 }
 
 .language-button:before {

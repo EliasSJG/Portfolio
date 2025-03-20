@@ -1,4 +1,3 @@
-import Header from "./components/header/header";
 import "./styles/base/_typography.scss";
 import { useContext, useRef } from "react";
 import { journey, projects, skills } from "./state/state";
@@ -9,7 +8,7 @@ import Journey from "./pages/journey/journey";
 import Skills from "./pages/skills/skills";
 import portfoliopicture from "./images/portfoliopicture.png";
 import AboutMe from "./pages/about/about";
-import Footer from "./components/footer/footer";
+
 import { LanguageContext } from "./context/languageConext";
 
 export default function App() {
@@ -18,13 +17,6 @@ export default function App() {
   const journeySectionScroll = useRef<HTMLDivElement | null>(null);
   const aboutSectionScroll = useRef<HTMLDivElement | null>(null);
   const skillsSectionScroll = useRef<HTMLDivElement | null>(null);
-
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("LanguageContext must be used within a LanguageProvider");
-  }
-
-  const { language, setLanguage } = context;
 
   const scrollToSections = (section: string) => {
     switch (section) {
@@ -45,14 +37,14 @@ export default function App() {
         break;
     }
   };
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("LanguageContext must be used within a LanguageProvider");
+  }
 
+  const { language } = context;
   return (
     <>
-      <Header
-        headerLinkClick={scrollToSections}
-        setLanguage={setLanguage}
-        language={language}
-      />
       <section ref={homeSectionScroll}>
         <div>
           <h1>
@@ -96,7 +88,6 @@ export default function App() {
       <div ref={skillsSectionScroll}>
         <Skills skill={skills}></Skills>
       </div>
-      <Footer footerLinkClick={scrollToSections}></Footer>
     </>
   );
 }

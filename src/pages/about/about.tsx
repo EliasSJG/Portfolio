@@ -21,7 +21,6 @@ export default function AboutMe() {
           <ul>
             <li> {language === "swe" ? "Född: " : "Born:"} 05-07-26</li>
             <li>
-              {" "}
               {language === "swe"
                 ? "Språk: Svenska, Engelska"
                 : "Language: Swedish, English"}
@@ -29,8 +28,8 @@ export default function AboutMe() {
             <li>{language === "swe" ? "Bor: " : "Resides: "} Sweden | Borås</li>
             <li>
               {language === "swe" ? "Utbildning: " : "Education: "}
-              Yrkeshögskolan i Borås | Frontendutveckling | 2024 - 2026
-              <li>LBS Gymnasiet | Systemutveckling | 2021 - 2024</li>
+              Yrkeshögskolan i Borås | Frontendutveckling | 2024 - 2026 LBS
+              Gymnasiet | Systemutveckling | 2021 - 2024
             </li>
           </ul>
           <ul>

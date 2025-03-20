@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./_navigation.scss";
 import {
   LanguageContext,
   LanguageContextProps,
 } from "../../context/languageConext";
+
 type NavigationProps = {
   navigationLinkClick: (section: string) => void;
 };
@@ -11,14 +13,29 @@ type NavigationProps = {
 export default function NavigationLinks({
   navigationLinkClick,
 }: NavigationProps) {
+  const navigate = useNavigate();
   const handleLinkClick = (
     section: string,
     event: React.MouseEvent<HTMLAnchorElement>
   ) => {
     event.preventDefault();
     navigationLinkClick(section);
+
+    if (section === "home") {
+      navigate("/");
+    } else if (section === "projects") {
+      navigate("/");
+    } else if (section === "journey") {
+      navigate("/");
+    } else if (section === "about") {
+      navigate("/");
+    } else if (section === "skills") {
+      navigate("/");
+    }
   };
+
   const { language } = useContext(LanguageContext) as LanguageContextProps;
+
   return (
     <div className="navi-list">
       <a href="#" onClick={(e) => handleLinkClick("home", e)}>

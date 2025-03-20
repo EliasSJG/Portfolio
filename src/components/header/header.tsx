@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./_header.scss";
 import Button from "../button/button";
 import NavigationLinks from "../navigation/navigation";
+import { Link } from "react-router-dom";
 
 type HeaderProps = {
   headerLinkClick: (section: string) => void;
@@ -28,19 +29,19 @@ function Header({ headerLinkClick, setLanguage, language }: HeaderProps) {
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <h2>Elias Gustafsson</h2>
-
-      <NavigationLinks navigationLinkClick={headerLinkClick}></NavigationLinks>
-      <Button
-        className="standard-button"
-        title={language === "swe" ? "Kontakt" : "Contact"}
-        handleClick={() => {}}
-      ></Button>
-
+      <NavigationLinks navigationLinkClick={headerLinkClick} />
       <Button
         className={`language-button ${language === "swe" ? "active" : ""}`}
         handleClick={() => setLanguage(language === "swe" ? "eng" : "swe")}
         title={language === "swe" ? "Sve" : "Eng"}
       />
+      <Link to="/contact">
+        <Button
+          className="standard-button"
+          title={language === "swe" ? "Kontakt" : "Contact"}
+          handleClick={() => {}}
+        ></Button>
+      </Link>
     </header>
   );
 }

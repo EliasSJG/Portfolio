@@ -1,6 +1,6 @@
-section {
+.home {
   display: flex;
-
+  height: 95vh;
   align-items: center;
   background-color: #0c0c0c;
   div {
@@ -11,6 +11,11 @@ section {
 
     flex-wrap: wrap;
   }
+}
+
+.about {
+  background-color: #202020;
+  padding: 30rem 1rem;
 }
 
 .portfolio-picture {

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import {
   LanguageContext,
   LanguageContextProps,
@@ -6,8 +6,34 @@ import {
 import "./_about.scss";
 export default function AboutMe() {
   const { language } = useContext(LanguageContext) as LanguageContextProps;
+  const sectionRefs = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry.target, entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    if (sectionRefs.current) {
+      observer.observe(sectionRefs.current);
+    }
+    return () => {
+      if (sectionRefs.current) {
+        observer.unobserve(sectionRefs.current);
+      }
+
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="about-main">
+    <div ref={sectionRefs} className="about-main hidden">
       <h1>{language === "swe" ? "Om Mig" : "About Me"}</h1>
       <div className="about-section">
         <div>

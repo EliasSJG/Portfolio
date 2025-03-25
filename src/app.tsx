@@ -1,5 +1,5 @@
 import "./styles/base/_typography.scss";
-import { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { journey, projects, skills } from "./state/state";
 import Button from "./components/button/button";
 import Project from "./pages/project/project";
@@ -11,32 +11,55 @@ import AboutMe from "./pages/about/about";
 
 import { LanguageContext } from "./context/languageConext";
 
-export default function App() {
-  const homeSectionScroll = useRef<HTMLDivElement | null>(null);
-  const projectSectionScroll = useRef<HTMLDivElement | null>(null);
-  const journeySectionScroll = useRef<HTMLDivElement | null>(null);
-  const aboutSectionScroll = useRef<HTMLDivElement | null>(null);
-  const skillsSectionScroll = useRef<HTMLDivElement | null>(null);
+type SectionName = "home" | "journey" | "skills";
 
-  const scrollToSections = (section: string) => {
-    switch (section) {
-      case "home":
-        homeSectionScroll.current?.scrollIntoView({ behavior: "smooth" });
-        break;
-      case "projects":
-        projectSectionScroll.current?.scrollIntoView({ behavior: "smooth" });
-        break;
-      case "journey":
-        journeySectionScroll.current?.scrollIntoView({ behavior: "smooth" });
-        break;
-      case "about":
-        aboutSectionScroll.current?.scrollIntoView({ behavior: "smooth" });
-        break;
-      case "skills":
-        skillsSectionScroll.current?.scrollIntoView({ behavior: "smooth" });
-        break;
-    }
+export default function App() {
+  const sectionRefs: Record<
+    SectionName,
+    React.RefObject<HTMLDivElement | null>
+  > = {
+    home: useRef<HTMLDivElement | null>(null),
+
+    journey: useRef<HTMLDivElement | null>(null),
+
+    skills: useRef<HTMLDivElement | null>(null),
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry.target, entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    Object.values(sectionRefs).forEach((sectionRefs) => {
+      if (sectionRefs.current) {
+        observer.observe(sectionRefs.current);
+      }
+    });
+
+    return () => {
+      Object.values(sectionRefs).forEach((sectionRefs) => {
+        if (sectionRefs.current) {
+          observer.unobserve(sectionRefs.current);
+        }
+      });
+      observer.disconnect();
+    };
+  }, []);
+
+  // hiddenElements.forEach((element) => observer.unobserve(element));
+
+  // const scrollToSections = (section: SectionName) => {
+  //   const sectionRef = sectionRefs[section];
+  //   sectionRef?.current?.scrollIntoView({ behavior: "smooth" });
+  // };
+
   const context = useContext(LanguageContext);
   if (!context) {
     throw new Error("LanguageContext must be used within a LanguageProvider");
@@ -45,7 +68,7 @@ export default function App() {
   const { language } = context;
   return (
     <>
-      <section ref={homeSectionScroll}>
+      <div className="home hidden" ref={sectionRefs.home}>
         <div>
           <h1>
             {language === "swe"
@@ -64,7 +87,7 @@ export default function App() {
           </p>
           <Button
             className="standard-button"
-            handleClick={() => scrollToSections("projects")}
+            handleClick={() => null}
             title={language === "swe" ? "Läs mer" : "Read more"}
           ></Button>
         </div>
@@ -75,18 +98,18 @@ export default function App() {
             alt="Picture of me"
           />
         </div>
-      </section>
-      <div ref={projectSectionScroll}>
+      </div>
+      <div>
         <Project projects={projects} />
       </div>
-      <div ref={journeySectionScroll}>
+      <div className="hidden" ref={sectionRefs.journey}>
         <Journey journey={journey} />
       </div>
-      <div ref={aboutSectionScroll}>
-        <AboutMe></AboutMe>
+      <div className="about">
+        <AboutMe />
       </div>
-      <div ref={skillsSectionScroll}>
-        <Skills skill={skills}></Skills>
+      <div className="hidden" ref={sectionRefs.skills}>
+        <Skills skill={skills} />
       </div>
     </>
   );

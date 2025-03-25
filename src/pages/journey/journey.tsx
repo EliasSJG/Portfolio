@@ -15,7 +15,7 @@ type JourneyProps = {
 export default function Journey({ journey }: JourneyProps) {
   const { language } = useContext(LanguageContext) as LanguageContextProps;
   return (
-    <div className="journey-section">
+    <div className="journey-section ">
       <h1>{language === "swe" ? "Min Resa" : "My Journey"}</h1>
       <div className="journey-div">
         {journey.map((journey, index) => {

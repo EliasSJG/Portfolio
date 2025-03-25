@@ -4,12 +4,12 @@ import "./Main.scss";
 
 import { LanguageProvider } from "./context/languageConext";
 import { RouterProvider } from "react-router-dom";
-import router from "./router/router"; // Import the router instance
+import router from "./router/router";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <LanguageProvider>
-      <RouterProvider router={router} /> {/* Pass the router here */}
+      <RouterProvider router={router} />
     </LanguageProvider>
   </StrictMode>
 );

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Button from "../../components/button/button";
 import {
   LanguageContext,
@@ -12,17 +12,49 @@ type ProjectProps = {
     link: string;
   }[];
 };
-
 function Project({ projects }: ProjectProps) {
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry.target, entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    sectionRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+
+      observer.disconnect();
+    };
+  }, []);
+
   const { language } = useContext(LanguageContext) as LanguageContextProps;
   const gitHub = "https://github.com/EliasSJG";
   return (
     <div className="project-section">
       <h1> {language === "swe" ? "Mina Projekt" : "My Projects"}</h1>
-      <div className="project-grid">
+      <div className="project-grid ">
         {projects.map((project, index) => {
           return (
-            <div key={index}>
+            <div
+              ref={(el) => {
+                sectionRefs.current[index] = el;
+              }}
+              className="project-card hidden"
+              key={index}
+            >
               <h2>{project.title}</h2>
 
               <p>{project.description[language]}</p>

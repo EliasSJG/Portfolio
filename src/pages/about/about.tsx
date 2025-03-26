@@ -6,6 +6,7 @@ import {
 import "./_about.scss";
 export default function AboutMe() {
   const { language } = useContext(LanguageContext) as LanguageContextProps;
+
   const sectionRefs = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,9 +34,9 @@ export default function AboutMe() {
   }, []);
 
   return (
-    <div ref={sectionRefs} className="about-main hidden">
+    <>
       <h1>{language === "swe" ? "Om Mig" : "About Me"}</h1>
-      <div className="about-section">
+      <div ref={sectionRefs} className="about-section hidden">
         <div>
           <p>
             {language === "swe"
@@ -70,6 +71,6 @@ export default function AboutMe() {
           </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }

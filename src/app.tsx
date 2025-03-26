@@ -11,47 +11,43 @@ import AboutMe from "./pages/about/about";
 
 import { LanguageContext } from "./context/languageConext";
 
-type SectionName = "home" | "journey" | "skills";
+// type SectionName = "home";
 
 export default function App() {
-  const sectionRefs: Record<
-    SectionName,
-    React.RefObject<HTMLDivElement | null>
-  > = {
-    home: useRef<HTMLDivElement | null>(null),
+  // const sectionRefs: Record<
+  //   SectionName,
+  //   React.RefObject<HTMLDivElement | null>
+  // > = {
+  //   home: useRef<HTMLDivElement | null>(null),
+  // };
 
-    journey: useRef<HTMLDivElement | null>(null),
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver((entries) => {
+  //     entries.forEach((entry) => {
+  //       console.log(entry.target, entry.isIntersecting);
+  //       if (entry.isIntersecting) {
+  //         entry.target.classList.add("show");
+  //       } else {
+  //         entry.target.classList.remove("show");
+  //       }
+  //     });
+  //   });
 
-    skills: useRef<HTMLDivElement | null>(null),
-  };
+  //   Object.values(sectionRefs).forEach((sectionRefs) => {
+  //     if (sectionRefs.current) {
+  //       observer.observe(sectionRefs.current);
+  //     }
+  //   });
 
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        console.log(entry.target, entry.isIntersecting);
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    });
-
-    Object.values(sectionRefs).forEach((sectionRefs) => {
-      if (sectionRefs.current) {
-        observer.observe(sectionRefs.current);
-      }
-    });
-
-    return () => {
-      Object.values(sectionRefs).forEach((sectionRefs) => {
-        if (sectionRefs.current) {
-          observer.unobserve(sectionRefs.current);
-        }
-      });
-      observer.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     Object.values(sectionRefs).forEach((sectionRefs) => {
+  //       if (sectionRefs.current) {
+  //         observer.unobserve(sectionRefs.current);
+  //       }
+  //     });
+  //     observer.disconnect();
+  //   };
+  // }, []);
 
   // hiddenElements.forEach((element) => observer.unobserve(element));
 
@@ -68,7 +64,7 @@ export default function App() {
   const { language } = context;
   return (
     <>
-      <div className="home hidden" ref={sectionRefs.home}>
+      <div className="home">
         <div>
           <h1>
             {language === "swe"
@@ -102,13 +98,13 @@ export default function App() {
       <div>
         <Project projects={projects} />
       </div>
-      <div className="hidden" ref={sectionRefs.journey}>
+      <div>
         <Journey journey={journey} />
       </div>
       <div className="about">
         <AboutMe />
       </div>
-      <div className="hidden" ref={sectionRefs.skills}>
+      <div>
         <Skills skill={skills} />
       </div>
     </>

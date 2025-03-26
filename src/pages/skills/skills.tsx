@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import "./_skills.scss";
 import Button from "../../components/button/button";
 import { skills } from "../../state/state";
@@ -20,11 +20,35 @@ export default function Skills({ skill }: SkillsProps) {
   const nextSkill = () => {
     setCurrentSkill((prev) => (prev + 1) % skill.length);
   };
+  const sectionRefs = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry.target, entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    if (sectionRefs.current) {
+      observer.observe(sectionRefs.current);
+    }
+    return () => {
+      if (sectionRefs.current) {
+        observer.unobserve(sectionRefs.current);
+      }
+
+      observer.disconnect();
+    };
+  }, []);
   return (
     <div className="skills-main">
       <h1>{language === "swe" ? "Färdigheter" : "Skills"}</h1>
-      <div className="skill-div">
+      <div ref={sectionRefs} className="skill-div hidden">
         <div className="image-container">
           <img
             src={skills[currentskill].image}

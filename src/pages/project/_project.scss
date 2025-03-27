@@ -23,6 +23,7 @@
     background-color: white;
     border-radius: 3rem;
     position: relative;
+
     button {
       position: absolute;
       bottom: 0;
@@ -35,6 +36,11 @@
   }
 }
 
+.project-card:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+  box-shadow: 0px 0px 6px 5px #2070cd;
+}
 .project-card:nth-child(1) {
   transition-delay: 200ms;
 }

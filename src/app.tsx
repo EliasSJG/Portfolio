@@ -64,37 +64,40 @@ export default function App() {
   const { language } = context;
   return (
     <>
-      <div className="home">
-        <div>
-          <h1>
-            {language === "swe"
-              ? "Hej! Jag Heter Elias!"
-              : "Hi! My Name Is Elias"}
-          </h1>
-          <h2>
-            {language === "swe"
-              ? "Välkommen till min portfolio!"
-              : "Welcome to my portfolio"}
-          </h2>
-          <p>
-            {language === "swe"
-              ? "En 19-årig frontendutvecklare som tycker om att programmera ochdesigna webbapplikationer."
-              : "A 19-year-old front-end developer who enjoys programming and designing web applications."}
-          </p>
-          <Button
-            className="standard-button"
-            handleClick={() => null}
-            title={language === "swe" ? "Läs mer" : "Read more"}
-          ></Button>
-        </div>
-        <div>
-          <img
-            className="portfolio-picture"
-            src={portfoliopicture}
-            alt="Picture of me"
-          />
-        </div>
+      <div>
+        <div className="home">
+          <div>
+            <h1>
+              {language === "swe"
+                ? "Hej! Jag Heter Elias!"
+                : "Hi! My Name Is Elias"}
+            </h1>
+            <h2>
+              {language === "swe"
+                ? "Välkommen till min portfolio!"
+                : "Welcome to my portfolio"}
+            </h2>
+            <p>
+              {language === "swe"
+                ? "En 19-årig frontendutvecklare som tycker om att programmera ochdesigna webbapplikationer."
+                : "A 19-year-old front-end developer who enjoys programming and designing web applications."}
+            </p>
+            <Button
+              className="standard-button"
+              handleClick={() => null}
+              title={language === "swe" ? "Läs mer" : "Read more"}
+            ></Button>
+          </div>
+          <div>
+            <img
+              className="portfolio-picture"
+              src={portfoliopicture}
+              alt="Picture of me"
+            />
+          </div>
+        </div>{" "}
       </div>
+
       <div>
         <Project projects={projects} />
       </div>

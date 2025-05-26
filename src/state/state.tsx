@@ -62,8 +62,8 @@ export const journey = [
   {
     year: "2025",
     description: {
-      swe: "Det första projektet jag gjorde under denna period var en frågesport-webbsida i TypeScript, kallad Ultimate Trivia. Du kan se det i projektsektionen. Efter det har jag fortsatt utvecklas och just nu lär jag mig React.",
-      eng: "The first project I did during this period was a quiz website in TypeScript, called Ultimate Trivia. You can see it in the projects section. After that, I continued to develop and am currently learning React.",
+      swe: "Det första projektet jag gjorde under denna period var en frågesport-webbsida i TypeScript, kallad Ultimate Trivia. Du kan se det i projektsektionen. Sedan hade jag kursen JavaScript ramverk där jag lärde mig React. För slutprojektet byggde jag en webbsida för att hitta spel med hjälp av IGDB API. Just nu har jag kursen Apputveckling och lär mig react native. ",
+      eng: "The first project I did during this period was a quiz website in TypeScript, called Ultimate Trivia. You can see it in the projects section. Then I had the JavaScript framework course where I learned React. For my final project I built a website to find games using the IGDB API. Right now I have the App Development course and am learning react native.",
     },
   },
 ];

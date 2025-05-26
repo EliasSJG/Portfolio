@@ -74,3 +74,54 @@ use:nth-child(4) {
     transform: translateX(85px);
   }
 }
+
+@media (max-width: 1024px) {
+  .skill-div {
+    flex-direction: column;
+    height: auto;
+    margin: 0 1rem;
+  }
+
+  .image-container {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: solid 10px white;
+  }
+
+  .skill-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 1rem;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .info-container {
+    width: 100%;
+    padding: 1rem;
+    h2 {
+      margin: 1rem 0;
+    }
+    p {
+      padding-right: 2rem;
+    }
+  }
+
+  .switch-skill {
+    align-self: center;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-main {
+    padding: 10rem 0 0 0;
+  }
+
+  .waves {
+    height: 10vh;
+    margin-top: 5rem;
+  }
+}

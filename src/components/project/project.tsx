@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import Button from "../../components/button/button";
+import Button from "../button/button";
 import {
   LanguageContext,
   LanguageContextProps,

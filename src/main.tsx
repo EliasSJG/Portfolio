@@ -3,13 +3,13 @@ import { createRoot } from "react-dom/client";
 import "./Main.scss";
 
 import { LanguageProvider } from "./context/languageConext";
-import { RouterProvider } from "react-router-dom";
-import router from "./router/router";
+
+import App from "./app";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <LanguageProvider>
-      <RouterProvider router={router} />
+      <App />
     </LanguageProvider>
   </StrictMode>
 );

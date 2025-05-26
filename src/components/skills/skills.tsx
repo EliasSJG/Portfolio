@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./_skills.scss";
-import Button from "../../components/button/button";
+import Button from "../button/button";
 import { skills } from "../../state/state";
 import {
   LanguageContext,
@@ -56,7 +56,7 @@ export default function Skills({ skill }: SkillsProps) {
       <h1>{language === "swe" ? "Färdigheter" : "Skills"}</h1>
       <div ref={sectionRefs} className="skill-div hidden">
         <div
-          className={` image-container ${
+          className={`image-container ${
             isAnimating ? "animateOut" : "animateIn"
           }`}
         >

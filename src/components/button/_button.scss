@@ -5,6 +5,7 @@
   color: white;
   padding: 0.5rem;
   width: 10rem;
+  width: clamp(4rem, 10rem, 10rem);
   cursor: pointer;
   margin: 1rem;
   border: none;

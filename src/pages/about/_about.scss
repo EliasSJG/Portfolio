@@ -1,6 +1,8 @@
 .about-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
   div {
     width: 90%;
   }
@@ -9,9 +11,68 @@
 .dot-list-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+
   a {
     color: white;
     text-decoration: none;
     margin: 0;
+    word-break: break-word;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.about-div {
+  background-color: #202020;
+  padding: 10rem 1rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .dot-list-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 1rem 0;
+  }
+
+  .dot-list-info {
+    grid-template-columns: 1fr;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+
+  .about-div {
+    padding: 5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-div {
+    padding: 3rem 1rem;
+  }
+
+  .about-section div {
+    width: 100%;
   }
 }

@@ -8,6 +8,7 @@ type HeaderProps = {
   setLanguage: (lang: "swe" | "eng") => void;
   language: "swe" | "eng";
 };
+
 export default function Header({ setLanguage, language }: HeaderProps) {
   const [scrolled, setScroll] = useState(false);
   const [isMobile, setMobile] = useState(window.innerWidth <= 1056);
@@ -72,7 +73,7 @@ export default function Header({ setLanguage, language }: HeaderProps) {
           <button className="close-button" onClick={() => setMenu(false)}>
             ×
           </button>
-          <NavigationLinks />
+          <NavigationLinks onLinkClick={() => setMenu(false)} />
           <Button
             className={`language-button ${language === "swe" ? "active" : ""}`}
             handleClick={() => {

@@ -4,6 +4,7 @@ import {
   LanguageContext,
   LanguageContextProps,
 } from "../../context/languageConext";
+import { Link } from "react-router-dom";
 type NavigationProps = {
   refs?: {
     homeRef: React.RefObject<HTMLDivElement | null>;
@@ -37,9 +38,12 @@ export default function NavigationLinks({
 
   return (
     <nav className="navi-list">
-      <a href="#home" onClick={(e) => scrollToRef(e, "homeRef")}>
-        {language === "swe" ? "Hem" : "Home"}
-      </a>
+      <Link to="/home">
+        <a href="#home" onClick={(e) => scrollToRef(e, "homeRef")}>
+          {language === "swe" ? "Hem" : "Home"}
+        </a>
+      </Link>
+
       <a href="#project" onClick={(e) => scrollToRef(e, "projectRef")}>
         {language === "swe" ? "Projekt" : "Project"}
       </a>
